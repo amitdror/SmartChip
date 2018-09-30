@@ -24,10 +24,10 @@ module.exports = function () {
         filename: 'smartchip.log',
     });
     
-    winston.add(winston.transports.MongoDB, {
-        db: config.get('db'),
-        level: 'error'
-    });
+    // winston.add(winston.transports.MongoDB, {
+    //     db: config.get('db'),
+    //     level: 'error'
+    // });
 };
 
 //handle exception throwing in higher level
