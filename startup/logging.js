@@ -22,7 +22,6 @@ module.exports = function () {
     // Set logger output file
     winston.add(winston.transports.File, {
         filename: 'smartchip.log',
-        level: 'info'
     });
     
     winston.add(winston.transports.MongoDB, {
