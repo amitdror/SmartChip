@@ -1,3 +1,4 @@
 {
-    "jwtPrivateKey": "smartchip_jwtPrivateKey"
+    "jwtPrivateKey": "smartchip_jwtPrivateKey",
+    "db": "smartchip_db"
 }
