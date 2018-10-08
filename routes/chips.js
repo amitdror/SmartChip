@@ -19,38 +19,17 @@ router.get('/', auth, async (req, res) => {
     res.send(chips.chips);
 });
 
-
 // Get Chip by id
 // TODO: Performance issue
-router.get('/:id', async (req, res) => {
-     // Ensure chip id validation
-     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
-     if (!isValidId) return res.status(400).send('The chip id is not a valid Object ID.');
-     // Ensure chip is exist
-    const users = User.find();
-    let reqChip = null;
-    users.forEach(user => {
-        let chip = user.chips.id(req.params.id);
-        if(chip) reqChip = chip;
-    });
-    if (!chip) return res.status(404).send('The chip with the given ID not found.');
-    res.send(chip);
-});
-
-// Get Chip by userId & chipId
-router.get('/:userId/:chipId', async (req, res) => {
-    // Ensure user and chip id validation
-    const isValidUserId = mongoose.Types.ObjectId.isValid(req.params.userId);
-    if (!isValidUserId) return res.status(400).send('The user id is not a valid Object ID.');
-    const isValidChipId = mongoose.Types.ObjectId.isValid(req.params.chipId);
-    if (!isValidChipId) return res.status(400).send('The chip id is not a valid Object ID.');
-    // Ensure user is exist
-    const user = await User.findById(req.params.userId);
-    if (!user) return res.status(400).send('The user with the given id not found.');
+router.get('/:id', auth, async (req, res) => {
+    // Ensure chip id validation
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
+    if (!isValidId) return res.status(400).send('The chip id is not a valid Object ID.');
     // Ensure chip is exist
-    const chip = await user.chips.id(req.params.chipId);
+    const user = User.findById(req.user._id);
+    if(!user) return res.status(404).send('The user with the given ID not found');
+    const chip = user.chips.id(req.params.id);
     if (!chip) return res.status(404).send('The chip with the given ID not found.');
-
     res.send(chip);
 });
 
