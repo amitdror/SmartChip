@@ -13,9 +13,6 @@ module.exports = function () {
 
     //handle promise exception
     process.on('unhandledRejection', (ex) => {
-        //console.log('WE GOT AN UNHANDLED REJECTION')
-        //winston.error(ex.message, ex);
-        //process.exit(1);
         throw ex;
     });
 
@@ -23,7 +20,7 @@ module.exports = function () {
     winston.add(winston.transports.File, {
         filename: 'smartchip.log',
     });
-    
+
     // winston.add(winston.transports.MongoDB, {
     //     db: config.get('db'),
     //     level: 'error'
@@ -31,8 +28,14 @@ module.exports = function () {
 };
 
 //handle exception throwing in higher level
-    // process.on('uncaughtException', (ex) => {
-    //     //console.log('WE GOT AN UNCAUGHT EXCEPTION')
-    //     winston.error(ex.message, ex);
-    //     process.exit(1);
-    // });
+// process.on('uncaughtException', (ex) => {
+//     //console.log('WE GOT AN UNCAUGHT EXCEPTION')
+//     winston.error(ex.message, ex);
+//     process.exit(1);
+// });
+
+// process.on('unhandledRejection', (ex) => {
+//     console.log('WE GOT AN UNHANDLED REJECTION')
+//     winston.error(ex.message, ex);
+//     process.exit(1);
+// }
