@@ -9,7 +9,7 @@ const chipSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        minlength: 5,
+        minlength: 2,
         maxlength: 50,
     },
     admin: {
@@ -19,7 +19,7 @@ const chipSchema = new mongoose.Schema({
     },
     action: {
         type: String,
-        minlength: 5,
+        minlength: 2,
         maxlength: 1024,
         required: true
     },
@@ -43,8 +43,8 @@ const Chip = mongoose.model('Chip', chipSchema);
 // Validate chip function
 function validateChip(chip) {
     const schema = {
-        name: Joi.string().min(5).max(50).required(),
-        action: Joi.string().min(5).max(1024).required(),
+        name: Joi.string().min(2).max(50).required(),
+        action: Joi.string().min(2).max(1024).required(),
         options: Joi.array().items(Joi.string()).optional()
     };
 
