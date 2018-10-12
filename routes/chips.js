@@ -4,59 +4,66 @@ const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const { Chip, validate } = require('../models/chips'); //what returns + .Chip || .validate
 const { User } = require('../models/users');
+const _ = require('lodash');
 const mongoose = require('mongoose');
+const Fawn = require('fawn');
 const express = require('express');
 const router = express.Router();
 
 
+//Two face commit using 'fawn'
+Fawn.init(mongoose);
+
 // Get Chips
 router.get('/', auth, async (req, res) => {
-    const chips = await User.findById(req.user._id)
-        .limit(20)
+    // Ensure user exist
+    const user = await User.findById(req.user._id)
         .populate('chips')
-        .select('chips');
-    if (!chips) return res.status(404).send('The user with the given TOKEN not found.');
-    res.send(chips.chips);
+    //.select('chips');
+    if (!user) return res.status(404).send('The user with the given TOKEN not found.');
+    res.send(user.chips);
 });
 
 // Get Chip by id
-// TODO: Performance issue
-router.get('/:id', auth, async (req, res) => {
+router.get('/:id', async (req, res) => {
     // Ensure chip id validation
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
     if (!isValidId) return res.status(400).send('The chip id is not a valid Object ID.');
     // Ensure chip is exist
-    const user = User.findById(req.user._id);
-    if(!user) return res.status(404).send('The user with the given ID not found');
-    const chip = user.chips.id(req.params.id);
+    const chip = Chip.findById(req.params.id);
     if (!chip) return res.status(404).send('The chip with the given ID not found.');
+    // Send chip 
     res.send(chip);
 });
 
-// Add chip to user + middleware function for checking auth
-router.post('/', auth, async (req, res) => {
+// Add chip to user
+router.post('/', [auth, admin], async (req, res) => {
     // Ensure data validation using 'joi'
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
-    // Create new chip
+    // Ensure user exist
     let user = await User.findById(req.user._id); //from json web token
     if (!user) return res.status(404).send('The user with the given TOKEN not found.');
+    // Create new chip
     let chip = new Chip({
         name: req.body.name,
         admin: user._id,
         action: req.body.action,
         options: req.body.options || [],
     });
-    // Add chip to current user chips
-    user.chips.push(chip);
-    // Save chip to DB
-    await user.save();
-    // Return the new chip to client
-    res.send(chip);
+    // Save chip to DB + Add chip to current user chips
+    new Fawn.Task()
+        .save('chips', chip)
+        .update('users', { _id: req.user._id }, { $push: { chips: { $ojFuture: "0._id" } } })
+        .run({ useMongoose: true })
+        .then(() => {
+            res.send(chip);
+        });
+    // // Return the new chip to client
 });
 
 // Update chip
-router.put('/:id', auth, async (req, res) => {
+router.put('/:id', [auth, admin], async (req, res) => {
     // Ensure chip id validation
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
     if (!isValidId) return res.status(400).send('The chip id is not a valid Object ID.');
@@ -64,9 +71,10 @@ router.put('/:id', auth, async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     // Ensure chip is exist
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).populate('chips');
+    console.log(user);
     if (!user) return res.status(404).send('The user with the given TOKEN not found.');
-    let chip = await user.chips.id(req.params.id);
+    const chip = user.chips.find((chip) => chip._id.equals(req.params.id));
     if (!chip) return res.status(404).send('The chip with the given ID not found.');
     // Update chip
     chip.name = req.body.name;
@@ -74,7 +82,8 @@ router.put('/:id', auth, async (req, res) => {
     chip.options = req.body.options || [];
     chip.updatedAt = Date.now();
     // Save to DB
-    await user.save();
+    await chip.save();
+    // Return updated chip to user
     res.send(chip);
 });
 
@@ -84,16 +93,19 @@ router.delete('/:id', [auth, admin], async (req, res) => {
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
     if (!isValidId) return res.status(400).send('The chip id is not a valid Object ID.');
     // Ensure chip is exist
-    const user = await User.findById(req.user._id);
+    const user = await User.findById(req.user._id).populate('chips');
     if (!user) return res.status(404).send('The user with the given TOKEN not found.');
-    const chip = await user.chips.id(req.params.id)
+    let chip = user.chips.find((chip) => chip._id.equals(req.params.id));
     if (!chip) return res.status(404).send('The chip with the given ID not found.');
-    // Remove chip from user chips 
-    chip.remove();
-    // Save user to DB
-    await user.save();
+    // Remove chip from user chips + Remove chip form DB
+    new Fawn.Task()
+        .remove('chips', { _id: chip._id })
+        .update('users', { _id: req.user._id }, { $pull: { chips: { $in: [chip._id] } } })
+        .run({ useMongoose: true })
+        .then(() => {
+            res.send(chip);
+        });
     // Return removed chip to client
-    res.send(chip);
 });
 
 module.exports = router;

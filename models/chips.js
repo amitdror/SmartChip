@@ -37,8 +37,10 @@ const chipSchema = new mongoose.Schema({
     }
 });
 
+//Create Chip moudle
 const Chip = mongoose.model('Chip', chipSchema);
 
+// Validate chip function
 function validateChip(chip) {
     const schema = {
         name: Joi.string().min(5).max(50).required(),

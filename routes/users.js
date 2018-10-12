@@ -1,13 +1,14 @@
 
 const auth = require('../middleware/auth');
-const bcrypt = require('bcryptjs')
-const _ = require('lodash')
-const { User, validate } = require('../models/users'); //what returns + .Chip || .validate
+const bcrypt = require('bcryptjs');
+const _ = require('lodash');
+const { User, validate, validateUser } = require('../models/users'); //what returns + .Chip || .validate
 const mongoose = require('mongoose');
 const express = require('express');
 const router = express.Router();
 
 
+// Get Your User
 router.get('/me', auth, async (req, res) => { //get user _id from json web token
     const user = await User.findById(req.user._id) //from json web token
         .select({ password: 0, isAdmin: 0, __v: 0 });
@@ -16,6 +17,7 @@ router.get('/me', auth, async (req, res) => { //get user _id from json web token
     res.send(user);
 });
 
+// Add New User
 router.post('/', async (req, res) => {
     // Ensure date validation using 'joi'
     const { error } = validate(req.body);
@@ -35,10 +37,10 @@ router.post('/', async (req, res) => {
     res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email', 'phone']));
 });
 
-// Update chip
+// Update Your User
 router.put('/me', auth, async (req, res) => {
     // Ensure date validation using 'joi'
-    const { error } = validate(req.body);
+    const { error } = validateUser(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     // Ensure user exist
     const user = await User.findById(req.user._id) //from json web token
@@ -47,8 +49,6 @@ router.put('/me', auth, async (req, res) => {
     user.name = req.body.name;
     user.email = req.body.email;
     user.phone = req.body.phone;
-    const salt = await bcrypt.genSalt(10) //10 == how many time run the salt algo
-    user.password = await bcrypt.hash(user.password, salt); //hash the password
     // Save to DB
     await user.save();
     // Generate jwt auth token
