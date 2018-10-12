@@ -30,7 +30,7 @@ router.get('/:id', async (req, res) => {
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
     if (!isValidId) return res.status(400).send('The chip id is not a valid Object ID.');
     // Ensure chip is exist
-    const chip = Chip.findById(req.params.id);
+    const chip = await Chip.findById(req.params.id);
     if (!chip) return res.status(404).send('The chip with the given ID not found.');
     // Send chip 
     res.send(chip);
