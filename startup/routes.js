@@ -11,5 +11,6 @@ module.exports = function (app) {
     app.use('/api/users', users); //login 
     app.use('/api/auth', auth);
     app.use('/api/chips', chips);
+    //app.use('/api/actions', actions);
     app.use(error);//Express Error Middleware
 }

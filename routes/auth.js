@@ -1,6 +1,7 @@
 
 const bcrypt = require('bcryptjs')
 const Joi = require('joi');
+const _ = require('lodash');
 const auth = require('../middleware/auth');
 const admin = require('../middleware/admin');
 const { User } = require('../models/users');
@@ -41,7 +42,10 @@ router.put('/me', [auth, admin], async (req, res) => {
     user.password = await bcrypt.hash(req.body.newPassword, salt); //hash the password
     // Save to DB
     await user.save();
-    res.send(user);
+    // Generate jwt auth token
+    const token = user.generateAuthToken();
+    // return new user to client
+    res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email', 'phone']));
 });
 
 function validatePassword(req) {
