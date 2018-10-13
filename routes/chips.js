@@ -49,6 +49,7 @@ router.post('/', [auth, admin], async (req, res) => {
         admin: user._id,
         action: req.body.action,
         options: req.body.options || [],
+        isGlobal: req.body.isGlobal
     });
     // Save chip to DB + Add chip to current user chips
     new Fawn.Task()
