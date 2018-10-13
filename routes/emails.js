@@ -63,7 +63,7 @@ router.post('/contact', auth, async (req, res) => {
     const text = req.body.text;
     const body = `<h3>Text: ${text}</h3>`
     sendEmail(subject, text, body, config.get('emailUser')).
-        then(() => res.send('email sent to "smartchip.helpdesk"'));
+        then(() => res.send(`email sent to ${config.get('emailUser')}`));
 });
 
 
