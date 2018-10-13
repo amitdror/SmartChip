@@ -68,3 +68,81 @@
 {"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-12T23:11:37.167Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-12T23:11:57.861Z"}
 {"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-12T23:11:58.898Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T00:04:39.355Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T00:04:40.394Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T00:10:06.014Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T00:10:07.049Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T00:11:48.113Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T00:11:49.147Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T11:12:20.402Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T11:12:21.428Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T11:43:36.697Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T11:43:37.723Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T11:51:01.770Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T11:51:02.799Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:10:04.576Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:10:05.612Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:13:38.658Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:13:39.744Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:14:43.347Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:14:44.377Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:25:47.921Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:25:48.953Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:26:27.258Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:26:28.307Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:36:17.784Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:36:18.810Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:44:40.891Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:44:41.939Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:45:10.142Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:45:11.172Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:47:42.864Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:47:43.898Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:50:00.729Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:50:01.764Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:53:56.095Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:53:57.125Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:56:43.007Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:56:44.045Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T12:59:54.551Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T12:59:55.585Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T13:07:43.427Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T13:07:44.465Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T13:09:10.517Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T13:09:11.543Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T15:41:45.497Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T15:41:46.523Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:08:00.559Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:08:01.593Z"}
+{"message":"Joi is not defined","stack":"ReferenceError: Joi is not defined\n    at validate (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:61:16)\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:35:23)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\node_modules\\body-parser\\lib\\read.js:130:5\n    at invokeCallback (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\node_modules\\raw-body\\index.js:224:16)\n    at done (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\node_modules\\raw-body\\index.js:213:7)","level":"error","timestamp":"2018-10-13T16:08:23.065Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:12:19.363Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:12:20.397Z"}
+{"message":"user is not defined","stack":"ReferenceError: user is not defined\n    at validate (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:63:25)\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:34:23)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\route.js:137:13)\n    at Route.dispatch (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\route.js:112:3)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:281:22\n    at Function.process_params (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at Function.handle (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:174:3)\n    at router (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:47:12)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express-async-errors\\index.js:17:20\n    at Layer.handle [as handle_request] (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at trim_prefix (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:317:13)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:284:7\n    at Function.process_params (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:335:12)\n    at next (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\lib\\router\\index.js:275:10)\n    at C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\node_modules\\body-parser\\lib\\read.js:130:5\n    at invokeCallback (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\node_modules\\raw-body\\index.js:224:16)\n    at done (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\node_modules\\express\\node_modules\\raw-body\\index.js:213:7)","level":"error","timestamp":"2018-10-13T16:12:36.244Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:13:26.964Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:13:27.990Z"}
+{"message":"sendMail is not defined","stack":"ReferenceError: sendMail is not defined\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:53:5)","level":"error","timestamp":"2018-10-13T16:15:57.519Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:16:41.827Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:16:42.852Z"}
+{"message":"config is not defined","stack":"ReferenceError: config is not defined\n    at sendEmail (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:16:35)\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:53:5)","level":"error","timestamp":"2018-10-13T16:18:42.219Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:19:56.721Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:19:57.765Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:28:08.074Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:28:09.102Z"}
+{"message":"Cannot read property 'sendMail' of undefined","stack":"TypeError: Cannot read property 'sendMail' of undefined\n    at sendEmail (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:24:24)\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:54:5)","level":"error","timestamp":"2018-10-13T16:28:11.674Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:29:49.346Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:29:50.371Z"}
+{"message":"transporter.sendMail is not a function","stack":"TypeError: transporter.sendMail is not a function\n    at sendEmail (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:24:24)\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:54:5)","level":"error","timestamp":"2018-10-13T16:29:54.711Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:33:46.752Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:33:47.778Z"}
+{"message":"transporter.sendMail is not a function","stack":"TypeError: transporter.sendMail is not a function\n    at sendEmail (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:25:24)\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:55:5)","level":"error","timestamp":"2018-10-13T16:34:08.024Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:37:33.771Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:37:34.811Z"}
+{"message":"Cannot read property 'sendMail' of undefined","stack":"TypeError: Cannot read property 'sendMail' of undefined\n    at sendEmail (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:25:24)\n    at router.post (C:\\Users\\amitdr\\OneDrive\\repos\\NodeJS\\SmartChip\\server\\routes\\emails.js:55:5)","level":"error","timestamp":"2018-10-13T16:37:36.846Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:39:45.442Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:39:46.473Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:40:21.236Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:40:22.271Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:41:21.770Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:41:22.809Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2018-10-13T16:43:02.700Z"}
+{"level":"info","message":"Connected to MongoDB...","timestamp":"2018-10-13T16:43:03.808Z"}

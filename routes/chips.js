@@ -10,7 +10,6 @@ const Fawn = require('fawn');
 const express = require('express');
 const router = express.Router();
 
-
 //Two face commit using 'fawn'
 Fawn.init(mongoose);
 

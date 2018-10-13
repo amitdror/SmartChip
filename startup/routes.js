@@ -2,6 +2,7 @@
 const express = require('express');
 const users = require('../routes/users');
 const chips = require('../routes/chips');
+const emails = require('../routes/emails');
 const auth = require('../routes/auth');
 const error = require('../middleware/error');
 
@@ -11,6 +12,7 @@ module.exports = function (app) {
     app.use('/api/users', users); //login 
     app.use('/api/auth', auth);
     app.use('/api/chips', chips);
+    app.use('/api/emails', emails);
     //app.use('/api/actions', actions);
     app.use(error);//Express Error Middleware
 }

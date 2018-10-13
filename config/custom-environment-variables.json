@@ -1,4 +1,6 @@
 {
     "jwtPrivateKey": "smartchip_jwtPrivateKey",
-    "db": "smartchip_db"
+    "db": "smartchip_db",
+    "emailUser": "smartchip_emailUser",
+    "emailPassword": "smartchip_emailPassword"
 }

@@ -6,7 +6,8 @@ const app = express();
 
 require('./startup/logging')();
 require('./startup/routes')(app);
-//require('./startup/views')(app);
+// require('./startup/handlebars')(app);
+require('./startup/nodemailer')();
 require('./startup/db')();
 require('./startup/config')();
 require('./startup/validation')();
