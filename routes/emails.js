@@ -1,4 +1,5 @@
 
+const { passwordTemplate, contactTemplate } = require('../templates/email');
 const { User } = require('../models/users'); //what returns + .Chip || .validate
 const { transporter } = require('../startup/nodemailer');
 const auth = require('../middleware/auth');
@@ -45,7 +46,7 @@ router.post('/password', async (req, res) => {
     // Send Mail To User
     const subject = 'Smartchip - Reset Password Request';
     const text = '';
-    const body = `<h3>Your Password is: ${tempPassword}</h3>`;
+    const body = passwordTemplate(tempPassword);
     sendEmail(subject, text, body, req.body.email).
         then(() => res.send(`password sent to ${req.body.email}`));
 });
@@ -61,7 +62,7 @@ router.post('/contact', auth, async (req, res) => {
     // Send Mail To User
     const subject = req.body.subject;
     const text = req.body.text;
-    const body = `<h3>Text: ${text}</h3>`
+    const body = '';
     sendEmail(subject, text, body, config.get('emailUser')).
         then(() => res.send(`email sent to ${config.get('emailUser')}`));
 });
@@ -85,5 +86,6 @@ function validatePassword(req) {
 
     return Joi.validate(req, schema);
 }
+
 
 module.exports = router;
