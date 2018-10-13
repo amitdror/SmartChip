@@ -24,11 +24,10 @@ function sendEmail(emailSubject, emailText, body, receivers) {
     return transporter().sendMail(mailOptions);
 }
 
-
 // Send reset password email
 router.post('/password', async (req, res) => {
     // Ensure date validation using 'joi'
-    const { error } = validate(req.body);
+    const { error } = validatePassword(req.body);
     if (error) return res.status(400).send(error.details[0].message);
     // Ensure user exist
     let user = await User.findOne({ email: req.body.email }); //from json web token
@@ -46,19 +45,45 @@ router.post('/password', async (req, res) => {
     // Send Mail To User
     const subject = 'Smartchip - Reset Password Request';
     const text = '';
-    const body = '<h3>This is working</h3>'
+    const body = `<h3>Your Password is: ${tempPassword}</h3>`;
     sendEmail(subject, text, body, req.body.email).
         then(() => res.send(`password sent to ${req.body.email}`));
 });
 
-// Validate email is valid
-function validate(req) {
+// Send Contact Us email
+router.post('/contact', auth, async (req, res) => {
+    // Ensure date validation using 'joi'
+    const { error } = validateContact(req.body);
+    if (error) return res.status(400).send(error.details[0].message);
+    // Ensure user exist
+    let user = await User.findById(req.user._id); //from json web token
+    if (!user) return res.status(404).send('The user with the given email not found.');
+    // Send Mail To User
+    const subject = req.body.subject;
+    const text = req.body.text;
+    const body = `<h3>Text: ${text}</h3>`
+    sendEmail(subject, text, body, config.get('emailUser')).
+        then(() => res.send('email sent to "smartchip.helpdesk"'));
+});
+
+
+// Validate contact 
+function validateContact(req) {
     const schema = {
-        email: Joi.string().min(5).max(255).required().email({ minDomainAtoms: 2 }),
+        subject: Joi.string().min(5).max(50).required(),
+        text: Joi.string().min(5).max(1024).required()
     };
 
     return Joi.validate(req, schema);
 }
 
+// Validate password 
+function validatePassword(req) {
+    const schema = {
+        email: Joi.string().min(5).max(255).required().email({ minDomainAtoms: 2 })
+    };
+
+    return Joi.validate(req, schema);
+}
 
 module.exports = router;
