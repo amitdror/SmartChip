@@ -34,6 +34,10 @@ const chipSchema = new mongoose.Schema({
     updatedAt: {
         type: Date,
         default: Date.now
+    },
+    isGlobal: {
+        type: Boolean,
+        required: true
     }
 });
 
@@ -45,7 +49,8 @@ function validateChip(chip) {
     const schema = {
         name: Joi.string().min(2).max(50).required(),
         action: Joi.string().min(2).max(1024).required(),
-        options: Joi.array().items(Joi.string()).optional()
+        options: Joi.array().items(Joi.string()).optional(),
+        isGlobal: Joi.boolean().required()
     };
 
     return Joi.validate(chip, schema);

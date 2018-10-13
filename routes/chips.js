@@ -32,7 +32,7 @@ router.get('/:id', async (req, res) => {
     const chip = await Chip.findById(req.params.id);
     if (!chip) return res.status(404).send('The chip with the given ID not found.');
     // Send chip 
-    res.send(chip);
+    res.send(_.pick(chip, ['_id', 'name', 'action', 'options','isGlobal']));
 });
 
 // Add chip to user
@@ -79,6 +79,7 @@ router.put('/:id', [auth, admin], async (req, res) => {
     chip.name = req.body.name;
     chip.action = req.body.action;
     chip.options = req.body.options || [];
+    chip.isGlobal = req.body.isGlobal;
     chip.updatedAt = Date.now();
     // Save to DB
     await chip.save();
