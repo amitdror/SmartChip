@@ -8,7 +8,7 @@ require('express-async-errors'); // can use ./middleware/asnyc insted
 module.exports = function () {
     winston.handleExceptions(
         new winston.transports.Console({ colorize: true, prettyPrint: true }),
-        new winston.transports.File({ filename: 'uncaughtException.log' })
+        new winston.transports.File({ filename: 'logs/uncaughtException.log' })
     );
 
     //handle promise exception
@@ -18,7 +18,7 @@ module.exports = function () {
 
     // Set logger output file
     winston.add(winston.transports.File, {
-        filename: 'smartchip.log',
+        filename: 'logs/smartchip.log',
     });
 
     // winston.add(winston.transports.MongoDB, {
