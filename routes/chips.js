@@ -43,7 +43,7 @@ router.post('/', [auth, admin], async (req, res) => {
     // Ensure user exist
     let user = await User.findById(req.user._id); //from json web token
     if (!user) return res.status(404).send('The user with the given TOKEN not found.');
-    // Create new chip
+    // Create new chip (data will be validate again using 'Moongose' Schema)
     let chip = new Chip({
         name: req.body.name,
         admin: user._id,
@@ -51,15 +51,14 @@ router.post('/', [auth, admin], async (req, res) => {
         options: req.body.options || [],
         isGlobal: req.body.isGlobal
     });
-    // Save chip to DB + Add chip to current user chips
+    //'Two Phase Commit' protocol to Save chip to DB + Add chip ref to current user chips
     new Fawn.Task()
-        .save('chips', chip)
+        .save('chips', chip) 
         .update('users', { _id: req.user._id }, { $push: { chips: { $ojFuture: "0._id" } } })
         .run({ useMongoose: true })
         .then(() => {
-            res.send(chip);
+            res.send(chip); 
         });
-    // // Return the new chip to client
 });
 
 // Update chip
