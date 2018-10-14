@@ -45,8 +45,11 @@ router.put('/me', auth, async (req, res) => {
     // Ensure user exist
     const user = await User.findById(req.user._id) //from json web token
     if (!user) return res.status(404).send('The user with the given TOKEN not found.');
-    const isExist = await User.findOne({email: user.email});
-    if(isExist) return res.status(400).send('User with that email already registered.');
+    const userByEmail = await User.findOne({email: user.email});
+    if(userByEmail) {
+        const emailAvailable = user._id === userByEmail._id;
+        if(!emailAvailable) return res.status(400).send('User with that email already registered.');
+    }
     // Update user
     user.name = req.body.name;
     user.email = req.body.email;
