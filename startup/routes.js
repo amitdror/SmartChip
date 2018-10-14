@@ -9,10 +9,9 @@ const error = require('../middleware/error');
 module.exports = function (app) {
     // Configure the middlewares usedby the Express HTTP server object.
     app.use(express.json());
-    app.use('/api/users', users); //login 
+    app.use('/api/users', users);  
     app.use('/api/auth', auth);
     app.use('/api/chips', chips);
     app.use('/api/emails', emails);
-    //app.use('/api/actions', actions);
     app.use(error);//Express Error Middleware
 }
